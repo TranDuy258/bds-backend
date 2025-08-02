@@ -1,4 +1,4 @@
-// Import các thư viện cần thiết
+// File: api/scrape.js (Đã sửa lỗi)
 const admin = require("firebase-admin");
 const { ApifyClient } = require("apify-client");
 
@@ -39,8 +39,10 @@ module.exports = async (req, res) => {
         }
 
         const targetUrl = `https://batdongsan.com.vn/nha-dat-ban?tpl=map&z=${z}&nelat=${nelat}&nelng=${nelng}&swlat=${swlat}&swlng=${swlng}`;
+
+        // SỬA LỖI: Thay đổi cấu trúc input để khớp với Actor
         const actorInput = {
-            startUrls: [{ url: targetUrl }],
+            url: [targetUrl], // Actor này yêu cầu một mảng các URL trong trường 'url'
             maxItems: 50,
         };
 
